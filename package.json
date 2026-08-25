@@ -1,0 +1,53 @@
+{
+  "name": "goalslot",
+  "version": "0.1.0",
+  "description": "Command line client for GoalSlot. Browser login, timer control, and today's schedule from your terminal.",
+  "keywords": [
+    "goalslot",
+    "cli",
+    "time-tracking",
+    "timer",
+    "mcp"
+  ],
+  "homepage": "https://github.com/ZeeshanAdilButt/goalslot-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZeeshanAdilButt/goalslot-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZeeshanAdilButt/goalslot-cli/issues"
+  },
+  "license": "MIT",
+  "author": "Zeeshan Adil Butt",
+  "type": "module",
+  "bin": {
+    "goalslot": "dist/index.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./credentials": "./dist/credentials.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
