@@ -83,14 +83,23 @@ picks the credential up with no separate auth step.
 ```bash
 npm install -g goalslot goalslot-mcp
 goalslot login
-goalslot mcp          # runs the server over stdio
 ```
+
+Then register it with Claude Code:
+
+```bash
+claude mcp add goalslot -- goalslot mcp
+```
+
+Any client that speaks stdio works; point it at `goalslot mcp` as the command.
 
 `goalslot mcp` hands the server your config directory, not a token, so the server reads and
 refreshes the shared credential itself. A token passed through the environment would expire an
 hour later with no way to recover.
 
-Point an MCP client at `goalslot mcp` as the command. Any client that speaks stdio works.
+If the server is not installed, `goalslot mcp` says so and exits rather than failing silently.
+The launcher resolves `goalslot-mcp` first and `@goalslot/mcp` second, so it keeps working
+whichever name the package is published under.
 
 ## Credentials
 
